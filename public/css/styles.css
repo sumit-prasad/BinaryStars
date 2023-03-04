@@ -55,3 +55,65 @@ nav {
     max-width:100%;
 }
 
+
+
+/* Login */
+
+.form-floating {
+    margin-bottom: 1rem;
+}
+
+
+.outh {
+    padding: 0.6rem 0;
+}
+
+.bi {
+    padding: 0 1rem;
+    font-size: 1rem;
+}
+
+/* About */
+#about {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+  
+.about-banner {
+    background-color: #8EA7E9;
+    padding: 40px;
+    text-align: center;
+ }
+  
+.about-banner h1 {
+    margin-top: 0;
+}
+    
+.about-description {
+    margin-top: 40px;
+}
+  
+.about-description h2 {
+    margin-top: 0;
+}
+
+/* Contact */
+#contact {
+    background-color: #8EA7E9;
+    padding: 40px;
+    text-align: center;
+}
+
+.contact-main {
+    background-color: #F9F7F7;
+    text-align: center;
+    margin: 0 1rem;
+    padding: 0 1.5rem;
+}
+
+.contact-main form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  

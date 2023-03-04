@@ -1,0 +1,190 @@
+<%- include('partials/header') %>
+<div class="container">
+  <div class="row justify-content-center">
+    <h2 class="display-3 text-center mt-2 p-1">Sign up</h2>
+    <hr class="my-4 mx-auto" />
+    <div class="col-12 col-md-8 mt-5">
+      <form class="needs-validation" action="/signup" method="POST">
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <label for="firstName" class="form-label"
+              >First name <small class="super text-danger">*</small></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="firstName"
+              placeholder=""
+              required
+            />
+            <div class="invalid-feedback">Valid first name is required.</div>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="lastName" class="form-label"
+              >Last name<small class="super text-danger">*</small></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="lastName"
+              placeholder=""
+              required
+            />
+            <div class="invalid-feedback">Valid last name is required.</div>
+          </div>
+
+          <div class="col-12">
+            <label for="username" class="form-label"
+              >Add Username<small class="super text-danger">*</small></label
+            >
+            <div class="input-group has-validation">
+              <span class="input-group-text">@</span>
+              <input
+                type="text"
+                class="form-control"
+                name="username"
+                placeholder="Username"
+                min="6"
+                max="15"
+                required
+              />
+              <div class="invalid-feedback">Your username is required.</div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="email" class="form-label"
+              >Email<small class="super text-danger">*</small></label
+            >
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              placeholder="xyz@example.com"
+              required
+            />
+            <div class="invalid-feedback">
+              Please enter a valid email address for website updates.
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="password" class="form-label"
+              >Password<small class="super text-danger">*</small></label
+            >
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              placeholder="Password"
+              required
+            />
+            <div class="invalid-feedback">Password is required.</div>
+          </div>
+          <div class="col-12">
+            <label for="address" class="form-label"
+              >Address<small class="super text-danger">*</small></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="address"
+              placeholder="Building, Apartment or Street Name"
+              required
+            />
+            <div class="invalid-feedback">Please enter your main address.</div>
+          </div>
+
+          <div class="col-12">
+            <label for="address2" class="form-label"
+              >Address 2 <span class="text-muted">(Optional)</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="address2"
+              placeholder="City"
+            />
+          </div>
+
+          <div class="col-md-5">
+            <label for="country" class="form-label"
+              >Country<small class="super text-danger">*</small></label
+            >
+            <select class="form-select" name="country" required>
+              <option>Choose...</option>
+              <option>India</option>
+            </select>
+            <div class="invalid-feedback">Please select a valid country.</div>
+          </div>
+
+          <div class="col-md-4">
+            <label for="state" class="form-label"
+              >State <small class="super text-danger">*</small></label
+            >
+            <select class="form-select" name="state" required>
+              <option>Choose...</option>
+              <option>Maharashtra</option>
+            </select>
+            <div class="invalid-feedback">Please provide a valid state.</div>
+          </div>
+
+          <div class="col-md-3">
+            <label for="zip" class="form-label"
+              >Zip<small class="super text-danger">*</small></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="zip"
+              placeholder=""
+              required
+            />
+            <div class="invalid-feedback">Zip code required.</div>
+          </div>
+        </div>
+
+        <hr class="my-4" />
+        <h5 class="display-6 text-center">NGO Details</h5>
+
+        <div class="my-3">
+          <div class="row gy-3">
+            <div class="col-md-6">
+              <label for="ngoName" class="form-label"
+                >Name of NGO<small class="super text-danger">*</small></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                name="ngoName"
+                placeholder="e.g. Seed NGO"
+                required
+              />
+              <div class="invalid-feedback">Name of NGO is required</div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="ngoType" class="form-label"
+                >NGO Type<small class="super text-danger">*</small></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                name="ngoType"
+                placeholder="e.g. Education, Health, Environment, etc."
+                required
+              />
+              <div class="invalid-feedback">Credit card number is required</div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-4" />
+
+        <button class="w-100 btn btn-primary btn-lg mb-5" type="submit">
+          Sign Up Now
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
