@@ -1,0 +1,57 @@
+:root {
+    --main-bg-color: #F9F7F7;
+    --secondary-color: #DBE2EF;
+    --san-marino: #3F72AF;
+    --blue-zodiac: #112D4E;
+}
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Cinzel', serif;
+font-family: 'Quicksand', sans-serif; */
+
+html, body {
+    background-color: var(--main-bg-color);
+}
+
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+    font-family: "QuickSand", sans-serif;
+}
+
+/* Nav */
+nav {
+    background-color: var(--secondary-color);
+}
+
+.nav-item {
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    font-family: "QuickSand", sans-serif;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    font-weight: 300;
+    font-family: "Cinzel", serif;
+}
+
+.action-btn {
+    width: 7rem;
+    margin: 0 0.3rem;
+    font-weight: 700;
+}
+
+.login-btn {
+    font-weight: 100;
+    border-radius: 10px;
+}
+
+.signin-btn {
+    padding: 0.7rem;
+    border-radius: 15px;
+}
+
+/* Jumbotron */
+.jumbotron {
+    max-width:100%;
+}
+

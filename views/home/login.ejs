@@ -1,0 +1,50 @@
+<%- include("partials/header") -%>
+<div class="container animate__animated animate__fadeInUp animate__faster">
+  <div class="row">
+    <div class="col-12">
+      <div class="card signin card-login text-left mx-auto">
+        <div class="card-header text-info">Login</div>
+        <div class="card-body">
+          <form class="login needs-validation" action="/login" method="POST">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                name="username"
+                id="username"
+                placeholder="1xxxxxx0"
+                required
+                minlength="6"
+                maxlength="30"
+                autocomplete="off"
+              />
+              <label for="username">Username</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="password"
+                class="form-control form-control-sm"
+                name="password"
+                id="password"
+                placeholder="Password"
+                minlength="8"
+                required
+              />
+              <label for="password">Password</label>
+            </div>
+            <div class="form-floating">
+              <button type="submit" class="w-100 btn btn-login btn-success">
+                Log In
+              </button>
+            </div>
+            <div class="mt-3 text-center">
+              <a href="/reset" class="card-link" style="text-decoration: none"
+                >Forgot Password?</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
