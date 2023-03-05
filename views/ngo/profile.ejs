@@ -1,0 +1,79 @@
+<%- include('user-partials/user-header') %>
+<div class="container">
+  <div class="mb-4 rounded-3">
+    <div class="container-fluid py-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="col-12 mt-4 p-3">
+            <div class="row mb-4">
+              <h5 class="display-6 text-center">Personal Details</h5>
+            </div>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <span for="firstName" class="form-span">First name: </span>
+                <span class="profile-data"><%= user.firstName %></span>
+              </div>
+
+              <div class="col-sm-6">
+                <span for="lastName" class="form-span">Last name: </span>
+                <span class="profile-data"> <%= user.lastName %> </span>
+              </div>
+
+              <div class="col-6">
+                <span for="username" class="form-span">Username: </span>
+                <span class="profile-data"> <%= user.username %> </span>
+              </div>
+
+              <div class="col-sm-6">
+                <span for="email" class="form-span">Email: </span>
+                <span class="profile-data"> <%= user.email %> </span>
+              </div>
+
+              <div class="col-12">
+                <span for="address" class="form-span">Address: </span>
+                <span class="profile-data">
+                  <%= user.address %> <%= user.address2 %>
+                </span>
+              </div>
+
+              <div class="col-md-6">
+                <span for="country" class="form-span">Country: </span>
+                <span class="profile-data"> <%= user.country %> </span>
+              </div>
+
+              <div class="col-md-3">
+                <span for="state" class="form-span">State: </span>
+                <span class="profile-data"> <%= user.state %> </span>
+              </div>
+
+              <div class="col-md-3">
+                <span for="zip" class="form-span">Zip: </span>
+                <span class="profile-data"> <%= user.zip %> </span>
+              </div>
+
+              <hr class="my-4" />
+              <h5 class="display-6 text-center">NGO Details</h5>
+
+              <div class="my-3">
+                <div class="row gy-3">
+                  <div class="col-md-6">
+                    <span for="ngoName" class="form-span"
+                      >Name of the NGO:
+                    </span>
+                    <span class="profile-data"> <%= user.ngoName %> </span>
+                  </div>
+
+                  <div class="col-md-6">
+                    <span for="ngoType" class="form-span">NGO Type: </span>
+                    <span class="profile-data"> <%= user.ngoType %> </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%-include('user-partials/user-footer') %>
+  </div>
+</div>

@@ -1,19 +1,29 @@
 const router = require("express").Router();
-const passport = require("passport");
 const User = require("../models/user");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const passportLocalMongoose = require("passport-local-mongoose");
 
-// passport configuration
-passport.use(User.createStrategy());
+// Set up local strategy for passport
+passport.use(new LocalStrategy(User.authenticate()));
 
+// Set up passport serialization and deserialization
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+// passportLocalMongoose plugin for our schema
+// User.plugin(passportLocalMongoose);
 
 router.get("/", (req, res) => {
   return res.render("home/index");
 });
 
 router.get("/login", (req, res) => {
-  return res.render("home/login");
+  if (req.isAuthenticated()) {
+    return res.redirect("/ngo/dashboard/" + req.user.username);
+  } else {
+    return res.render("home/login");
+  }
 });
 
 router.get("/signup", (req, res) => {
@@ -28,70 +38,77 @@ router.get("/contact", (req, res) => {
   return res.render("home/contact");
 });
 
-router.post("/signup", (req, res) => {
-  const {
-    firstName,
-    lastName,
-    username,
-    email,
-    password,
-    address,
-    address2,
-    country,
-    state,
-    zip,
-    ngoName,
-    ngoType,
-  } = req.body;
+router.get("/reset-password", (req, res) => {
+  return res.render("home/reset");
+});
 
-  // passport-local-mongoose method for creating new user with entered username and password field in register route
-  User.register(
-    {
-      firstName: firstName,
-      lastName: lastName,
-      username: username,
-      email: email,
-      address: address,
-      address2: address2,
-      country: country,
-      state: state,
-      zip: zip,
-      ngoName: ngoName,
-      ngoType: ngoType,
-    },
-    password,
-    (err, user) => {
-      if (!err) {
-        // passport method to authenticate the user and redirect them to /user route
-        passport.authenticate("local")(req, res, () => {
-          if (err) {
-            console.log(err);
-          }
-        });
+router.post("/signup", async (req, res) => {
+  try {
+    const {
+      firstName,
+      lastName,
+      username,
+      email,
+      password,
+      address,
+      address2,
+      country,
+      state,
+      zip,
+      ngoName,
+      ngoType,
+    } = req.body;
+
+    const user = new User({
+      firstName,
+      lastName,
+      username,
+      email,
+      address,
+      address2,
+      country,
+      state,
+      zip,
+      ngoName,
+      ngoType,
+    });
+    // Use setPassword method provided by passport-local-mongoose to set hashed password
+    await user.setPassword(password);
+    // Save user to database
+    await user.save();
+
+    // passport-local-mongoose method for creating new user with entered username and password field in register route
+    req.login(user, (err) => {
+      if (err) {
+        console.error("Register Login Error: " + err);
+        res.status(500).send(err.message);
+      } else {
+        return res.redirect("ngo/" + username + "/dashboard");
       }
-    }
-  );
-  return res.redirect("ngo/dashboard/" + username);
+    });
+  } catch (err) {
+    console.error("Register Error: " + err);
+    res.status(500).send(err.message);
+  }
 });
 
-router.post("/login", (req, res) => {
-  const user = new User({
-    username: req.body.username,
-    password: req.body.password,
-  });
-  console.log(user);
-  req.login(user, (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      passport.authenticate("local", {
-        failureRedirect: "/login",
-      })(req, res, () => {
+router.post(
+  "/login",
+  passport.authenticate("local", { failureRedirect: "/login" }),
+  (req, res) => {
+    const user = new User({
+      username: req.body.username,
+      password: req.body.password,
+    });
+    req.login(user, (err) => {
+      if (err) {
+        console.log(err);
+      } else {
         // Send it to specified route
-        return res.redirect("ngo/dashboard/" + user.username);
-      });
-    }
-  });
-});
+        return res.redirect("ngo/" + user.username + "/dashboard");
+      }
+    });
+  }
+);
 
 module.exports = router;

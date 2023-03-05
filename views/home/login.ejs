@@ -2,24 +2,29 @@
 <div class="row jumbotron text-center">
   <div class="col-12">
     <div class="px-4 pt-4 bg-light rounded-3">
-      <h2 class="display-3">Log in</h2>
-      <hr class="w-50 mx-auto" />
+      <h2 class="display-3 abril">Log in</h2>
+      <hr class="w-75 mx-auto" />
       <div class="container-fluid py-5">
         <div class="row align-items-md-stretch">
           <div class="col-md-6 pb-4">
-            <div class="h-100 p-5 bg-light border rounded-3">
+            <div class="h-100 p-4 border rounded-3">
               <form action="/login" method="post">
-                <h1 class="h4 mb-4 fw-normal">
+                <h4 class="mb-4 fw-normal">
                   Please Login with your credentials
-                </h1>
+                </h4>
                 <div class="form-floating">
                   <input
                     type="text"
                     class="form-control"
                     name="username"
                     placeholder="xyz"
+                    required
+                    min="6"
+                    max="15"
                   />
-                  <label for="username">Username</label>
+                  <label for="username"
+                    >Username <small class="super text-danger">*</small></label
+                  >
                 </div>
                 <div class="form-floating">
                   <input
@@ -27,8 +32,12 @@
                     class="form-control"
                     name="password"
                     placeholder="Password"
+                    required
+                    min="8"
                   />
-                  <label for="password">Password</label>
+                  <label for="password"
+                    >Password <small class="super text-danger">*</small></label
+                  >
                 </div>
                 <div class="row">
                   <div class="col-md-6 pb-2">
@@ -42,8 +51,8 @@
                   <div class="col-md-6">
                     <a
                       class="btn btn-lg btn-outline-danger w-100"
-                      href="/forgotMail"
-                      >Forgot Mail</a
+                      href="/reset-password"
+                      >Forgot Password</a
                     >
                   </div>
                 </div>
@@ -52,7 +61,7 @@
           </div>
           <div class="col-md-6">
             <div class="h-100 p-5 bg-outline-info border rounded-3 text-start">
-              <h2 class="h2 mb-4 fw-normal">Other Methods:</h2>
+              <h2 class="h2 mb-4 fw-normal text-center">Other Methods:</h2>
               <div class="row outh">
                 <button class="btn btn-danger">
                   <i class="bi bi-google"></i>Google

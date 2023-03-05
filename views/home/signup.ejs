@@ -1,10 +1,13 @@
-<%- include('partials/header') %>
+<%- include("partials/header") %>
 <div class="container">
   <div class="row justify-content-center">
-    <h2 class="display-3 text-center mt-2 p-1">Sign up</h2>
-    <hr class="my-4 mx-auto" />
-    <div class="col-12 col-md-8 mt-5">
+    <h2 class="display-3 text-center my-3 p-1 abril">Sign up</h2>
+    <hr class="my-2 w-75 mx-auto" />
+    <div class="col-12 col-md-8 mt-4 p-3">
       <form class="needs-validation" action="/signup" method="POST">
+        <div class="row mb-4">
+          <h5 class="display-6 text-center">Personal Details</h5>
+        </div>
         <div class="row g-3">
           <div class="col-sm-6">
             <label for="firstName" class="form-label"
@@ -14,7 +17,7 @@
               type="text"
               class="form-control"
               name="firstName"
-              placeholder=""
+              placeholder="e.g. XYZ"
               required
             />
             <div class="invalid-feedback">Valid first name is required.</div>
@@ -22,13 +25,13 @@
 
           <div class="col-sm-6">
             <label for="lastName" class="form-label"
-              >Last name<small class="super text-danger">*</small></label
+              >Last name <small class="super text-danger">*</small></label
             >
             <input
               type="text"
               class="form-control"
               name="lastName"
-              placeholder=""
+              placeholder="e.g. ABC"
               required
             />
             <div class="invalid-feedback">Valid last name is required.</div>
@@ -36,7 +39,7 @@
 
           <div class="col-12">
             <label for="username" class="form-label"
-              >Add Username<small class="super text-danger">*</small></label
+              >Add Username <small class="super text-danger">*</small></label
             >
             <div class="input-group has-validation">
               <span class="input-group-text">@</span>
@@ -55,7 +58,7 @@
 
           <div class="col-12">
             <label for="email" class="form-label"
-              >Email<small class="super text-danger">*</small></label
+              >Email <small class="super text-danger">*</small></label
             >
             <input
               type="email"
@@ -70,7 +73,7 @@
           </div>
           <div class="col-12">
             <label for="password" class="form-label"
-              >Password<small class="super text-danger">*</small></label
+              >Password <small class="super text-danger">*</small></label
             >
             <input
               type="password"
@@ -83,7 +86,7 @@
           </div>
           <div class="col-12">
             <label for="address" class="form-label"
-              >Address<small class="super text-danger">*</small></label
+              >Address <small class="super text-danger">*</small></label
             >
             <input
               type="text"
@@ -109,7 +112,7 @@
 
           <div class="col-md-5">
             <label for="country" class="form-label"
-              >Country<small class="super text-danger">*</small></label
+              >Country <small class="super text-danger">*</small></label
             >
             <select class="form-select" name="country" required>
               <option>Choose...</option>
@@ -131,7 +134,7 @@
 
           <div class="col-md-3">
             <label for="zip" class="form-label"
-              >Zip<small class="super text-danger">*</small></label
+              >Zip <small class="super text-danger">*</small></label
             >
             <input
               type="text"
@@ -151,7 +154,7 @@
           <div class="row gy-3">
             <div class="col-md-6">
               <label for="ngoName" class="form-label"
-                >Name of NGO<small class="super text-danger">*</small></label
+                >Name of NGO <small class="super text-danger">*</small></label
               >
               <input
                 type="text"
@@ -165,7 +168,7 @@
 
             <div class="col-md-6">
               <label for="ngoType" class="form-label"
-                >NGO Type<small class="super text-danger">*</small></label
+                >NGO Type <small class="super text-danger">*</small></label
               >
               <input
                 type="text"
@@ -174,7 +177,7 @@
                 placeholder="e.g. Education, Health, Environment, etc."
                 required
               />
-              <div class="invalid-feedback">Credit card number is required</div>
+              <div class="invalid-feedback">NGO Type is required</div>
             </div>
           </div>
         </div>

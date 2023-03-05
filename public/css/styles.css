@@ -17,6 +17,18 @@ html, body {
     font-family: "QuickSand", sans-serif;
 }
 
+.abril {
+    font-family: "Abril Fatface", cursive;
+}
+
+.cinzel {
+    font-family: "Cinzel", serif;
+}
+
+.quicksand {
+    font-family: "Quicksand", sans-serif;
+}
+
 /* Nav */
 nav {
     background-color: var(--secondary-color);
@@ -55,7 +67,17 @@ nav {
     max-width:100%;
 }
 
+.main-cta {
+    background: linear-gradient(160deg, #30cfd0, #f86df1);
+    background-size: 400% 400%;
+    animation: main-cta 37s ease infinite;
+}
 
+@keyframes main-cta {
+    0% {background-position:0% 79%}
+    50% {background-position:100% 22%}
+    100% {background-position:0% 79%}
+}
 
 /* Login */
 

@@ -1,0 +1,11 @@
+.footer-container {
+    position: absolute;
+    bottom: 0;
+}
+
+/* Profile */
+
+.profile-data {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}

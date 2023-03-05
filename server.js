@@ -32,8 +32,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /*DB Connection*/
-const connectDB = require("./config/db");
-connectDB();
+const db = require("./config/db");
+
+// Set up database connection
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
+db.once("open", () => {
+  console.log("Connected to database");
+});
 
 /*Routes*/
 

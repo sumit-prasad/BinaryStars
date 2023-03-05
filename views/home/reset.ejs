@@ -1,0 +1,47 @@
+<%- include('partials/header') %>
+<div class="container py-4">
+  <div class="h-100 p-4 rounded-3">
+    <div
+      id="success"
+      class="alert alert-success alert-dismissible fade"
+      role="alert"
+      style="display: none"
+    >
+      <strong>Success!</strong> Check your email.
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="container-fluid pt-3">
+      <h1 class="display-5 fw-bold abril text-center">Reset Password</h1>
+      <hr class="w-75 mx-auto p-3" />
+      <p class="col fs-4 pb-3">
+        An password reset link will be sent to your registered email.
+      </p>
+      <form id="resetPass" action="/reset" method="POST">
+        <div class="row mb-3">
+          <div class="col-sm-12">
+            <label for="email" class="form-label text-start">Email:</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              required
+            />
+            <div id="emailHelp" class="form-text">
+              Note: Check your spam if you don't find the email.
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success float-end" type="button">
+          Send Link
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') %>
